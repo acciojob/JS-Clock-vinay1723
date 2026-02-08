@@ -9,16 +9,16 @@ function setDate() {
   const mins = now.getMinutes();
   const hour = now.getHours();
 
-  // SECOND HAND
+
   const secondsDegrees = seconds * 6 + 90;
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
-  // MINUTE HAND (⚠️ NO seconds added - important for Cypress test)
+  
   const minsDegrees = mins * 6 + 90;
   minHand.style.transform = `rotate(${minsDegrees}deg)`;
 
-  // HOUR HAND
-  const hourDegrees = (hour % 12) * 30 + 90;
+  
+  const hourDegrees = (30 * hour + mins / 2) % 360 + 90;
   hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 }
 
